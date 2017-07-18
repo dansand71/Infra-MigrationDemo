@@ -4,5 +4,5 @@ echo ".creating appservice web plan"
 
 echo ".creating appservice web app"
 ## Create the appservice - Already done via template
-~/bin/az webapp create -g ossdemo-infra-migrate -p webtier-plan -n VALUEOF-UNIQUE-SERVER-PREFIX-nodejs-todo
+~/bin/az webapp create -g ossdemo-infra-migrate -p webtier-plan -n dansandinfra-nodejs-todo
 

@@ -28,9 +28,9 @@ pm2 start ecosystem.config.js
 pm2 save
 env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup centos -u root --hp /root
 
-
-
-
-
-
-#MONGODB Back End - Ubutnu 14.04 - 
+#Install Docker for later demos - https://docs.docker.com/engine/installation/linux/docker-ce/centos/#docker-ee-customers
+sudo yum remove docker docker-common docker-selinux docker-engine
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum makecache fast
+sudo yum install docker-ce -y
