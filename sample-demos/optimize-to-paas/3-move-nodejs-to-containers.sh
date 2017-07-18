@@ -16,11 +16,17 @@ ssh -i ~/Desktop/msready-demo/aws-linux-vms.pem centos@azure-node-todo bash <<EO
     docker push dansandossdemoinfra.azurecr.io/ossdemo/nodejs-todo
 
     echo ".updating the web app with the container details"
-    ## Config the Docker Container
+EOF
+## Config the Docker Container
+echo ""
+echo ".setting the docker registry settings"
     ~/bin/az webapp config container set -n dansandinfra-nodejs-todo -g ossdemo-infra-migrate \
         --docker-registry-server-password /fQ+paow/+udNO/d6Lnf=CP4InxZrcJO \
         --docker-registry-server-user dansandossdemoinfra \
         --docker-registry-server-url dansandossdemoinfra.azurecr.io \
-        --docker-custom-image-name dansandossdemoinfra.azurecr.io/ossdemo/nodejs-todo \
-        --NODE_TODO_MONGO_DBCONNECTION mongodb://nodejs-todo:VbtkysT46KJx2FcTECQFVCVtOK4EWCTWTM9zwcEA55V3sgF1onpeQrUqPwXTfD1ufwLGrkNTmxLtMA75wyMVmg==@nodejs-todo.documents.azure.com:10255/todo?ssl=true
-EOF
+        --docker-custom-image-name dansandossdemoinfra.azurecr.io/ossdemo/nodejs-todo 
+
+echo ".setting the MONGODB Connection for the Container service..."    
+## Config the Mongo DB Connection
+    ~/bin/az webapp config appsettings set -n dansandinfra-nodejs-todo -g ossdemo-infra-migrate \
+        --settings NODE_TODO_MONGO_DBCONNECTION="mongodb://nodejs-todo:VbtkysT46KJx2FcTECQFVCVtOK4EWCTWTM9zwcEA55V3sgF1onpeQrUqPwXTfD1ufwLGrkNTmxLtMA75wyMVmg==@nodejs-todo.documents.azure.com:10255/todo?ssl=true"
