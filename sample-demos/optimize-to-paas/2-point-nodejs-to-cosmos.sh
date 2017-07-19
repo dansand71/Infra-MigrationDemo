@@ -10,6 +10,7 @@ echo "  with the new cosmosdb connection"
 ssh -i ~/Desktop/msready-demo/aws-linux-vms.pem centos@azure-node-todo bash <<EOF
     sudo su
     sed -i 's|NODE_TODO_MONGO_DBCONNECTION.*|NODE_TODO_MONGO_DBCONNECTION: '\''mongodb://nodejs-todo:VbtkysT46KJx2FcTECQFVCVtOK4EWCTWTM9zwcEA55V3sgF1onpeQrUqPwXTfD1ufwLGrkNTmxLtMA75wyMVmg==@nodejs-todo.documents.azure.com:10255/todo?ssl=true'\''|g' /source/nodejs-todo/ecosystem.config.js
+    sed -i 's|NODE_DB_Type.*|NODE_DB_Type: '\''cosmosdb mongo instance'\''|g' /source/nodejs-todo/ecosystem.config.js
     cd /source/nodejs-todo
     pm2 delete nodejs-todo
     pm2 save
