@@ -4,7 +4,7 @@
 #if this fails it is likely you have not updated the /etc/hosts with the correct IP addresses
 
 echo "SSH into MONGO backend and export data into cosmosdb"
-ssh -i ~/Desktop/msready-demo/aws-linux-vms.pem ubuntu@aws-mongo-todo bash <<EOF
+ssh -i ~/Desktop/msready-demo/aws-linux-vms.pem ubuntu@dansand-az-nodetodo-db.eastus.cloudapp.azure.com bash <<EOF
 
 mongoexport --db todo \
     --collection todos \

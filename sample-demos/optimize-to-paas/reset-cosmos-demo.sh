@@ -5,7 +5,7 @@
 
 echo "SSH into Node Frontend and set variables"
 echo "  replace the cosmosdb connection with mongodb://dansand-mongo-svr1:27017/todo"
-ssh -i ~/Desktop/msready-demo/aws-linux-vms.pem centos@azure-node-todo bash <<EOF
+ssh -i ~/Desktop/msready-demo/aws-linux-vms.pem centos@dansand-az-nodetodo.eastus.cloudapp.azure.com bash <<EOF
     sudo su
     sed -i 's|NODE_TODO_MONGO_DBCONNECTION.*|NODE_TODO_MONGO_DBCONNECTION: '\''mongodb://dansand-mongo-svr1:27017/todo'\''|g' /source/nodejs-todo/ecosystem.config.js
     sed -i 's|NODE_DB_Type.*|NODE_DB_Type: '\''iaas mongo instance'\''|g' /source/nodejs-todo/ecosystem.config.js

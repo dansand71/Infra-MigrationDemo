@@ -32,4 +32,5 @@ echo ".setting the docker registry settings on the webapp"
 echo ".setting the MONGODB Connection for the container..."    
 ## Config the Mongo DB Connection
     ~/bin/az webapp config appsettings set -n dansandinfra-nodejs-todo -g ossdemo-infra-migrate \
-        --settings NODE_TODO_MONGO_DBCONNECTION="mongodb://nodejs-todo:VbtkysT46KJx2FcTECQFVCVtOK4EWCTWTM9zwcEA55V3sgF1onpeQrUqPwXTfD1ufwLGrkNTmxLtMA75wyMVmg==@nodejs-todo.documents.azure.com:10255/todo?ssl=true"
+        --settings NODE_TODO_MONGO_DBCONNECTION="mongodb://nodejs-todo:VbtkysT46KJx2FcTECQFVCVtOK4EWCTWTM9zwcEA55V3sgF1onpeQrUqPwXTfD1ufwLGrkNTmxLtMA75wyMVmg==@nodejs-todo.documents.azure.com:10255/todo?ssl=true" \
+        NODE_DB_Type="cosmosdb mongo instance"
